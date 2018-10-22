@@ -59,16 +59,15 @@ class BDDAnnotationTransform(object):
         return res  # [[xmin, ymin, xmax, ymax, label_idx], ... ]
 
 
-class BDD(data.Dataset):
+class BDDDetection(data.Dataset):
 
     def __init__(self,
                  root,
-                 label_file,
                  transform=None,
                  target_transform=BDDAnnotationTransform(),
                  dataset_name='BDD'):
-        self.root = root
-        self.label_file = label_file
+        self.image_dir = os.path.join(root, 'images/100k/train')
+        self.label_file = os.path.join(root, 'labels/bdd100k_labels_images_train.json')
         self.transform = transform
         self.target_transform = target_transform
         self.name = dataset_name
@@ -95,7 +94,7 @@ class BDD(data.Dataset):
                    target is the object returned by ``coco.loadAnns``.
         """
         target = self.labels[index]
-        img = cv2.imread(os.path.join(self.root, target['name']))
+        img = cv2.imread(os.path.join(self.image_dir, target['name']))
 
         height, width, _ = img.shape
         if self.target_transform is not None:
