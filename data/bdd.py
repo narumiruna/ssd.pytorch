@@ -65,8 +65,8 @@ class BDDDetection(data.Dataset):
                  transform=None,
                  target_transform=BDDAnnotationTransform(),
                  dataset_name='BDD'):
-        self.image_dir = os.path.join(root, 'images/100k/train')
-        self.label_file = os.path.join(root, 'labels/bdd100k_labels_images_train.json')
+        self.image_dir = os.path.join(root, 'images/100k/val')
+        self.label_file = os.path.join(root, 'labels/bdd100k_labels_images_val.json')
         self.transform = transform
         self.target_transform = target_transform
         self.name = dataset_name
