@@ -64,9 +64,18 @@ class BDDDetection(data.Dataset):
                  root,
                  transform=None,
                  target_transform=BDDAnnotationTransform(),
-                 dataset_name='BDD'):
-        self.image_dir = os.path.join(root, 'images/100k/val')
-        self.label_file = os.path.join(root, 'labels/bdd100k_labels_images_val.json')
+                 dataset_name='BDD',
+                 phase='train'):
+        """
+        Args:
+            root (str): path to dataset
+            transform: function to transform the data
+            target_transform: function to transform the target
+            dataset_name (str): dataset name
+            phase (str): learning phase (train or val)
+        """
+        self.image_dir = os.path.join(root, 'images/100k/{}'.format(phase))
+        self.label_file = os.path.join(root, 'labels/bdd100k_labels_images_{}.json'.format(phase))
         self.transform = transform
         self.target_transform = target_transform
         self.name = dataset_name
