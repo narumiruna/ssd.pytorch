@@ -24,5 +24,5 @@
 3. Train ssd
 
 ```sh
-python train.py --dataset BDD --dataset_root ~/datasets/bdd/bdd100k --lr 1e-4
+python train.py --dataset BDD --dataset_root ~/datasets/bdd/bdd100k --lr 1e-4 --cuda true
 ```
