@@ -2,7 +2,9 @@
 
 1. Copy data/coco_labels.txt to ~/data/coco/coco_labels.txt
 
-2. Make sure your directory structure of bdd dataset:
+2. Download https://s3.amazonaws.com/amdegroot-models/vgg16_reducedfc.pth to weights/
+
+3. Make sure your directory structure of bdd dataset:
 
 ```
 .
@@ -21,7 +23,7 @@
 │       └── val
 ```
 
-3. Train ssd
+4. Train ssd
 
 ```sh
 python train.py --dataset BDD --dataset_root ~/datasets/bdd/bdd100k --lr 1e-4 --cuda true
